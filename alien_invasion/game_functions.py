@@ -6,6 +6,8 @@ from bullet import Bullet
 
 from alien import Alien
 
+from time import sleep
+
 def check_events(ai_settings, screen, ship, bullets):
 	"""响应按键和鼠标事件"""
 	for event in pygame.event.get():
@@ -128,7 +130,24 @@ def get_number_rows(ai_settings, ship_height, alien_height):
 	number_rows = int(available_space_y / (2 * alien_height))
 	return number_rows
 
-def update_aliens(ai_settings, ship, aliens):
+
+def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
+	"""响应被外星人撞到的飞船"""
+	# 将ships_left减1
+	stats.ships_left -= 1
+
+	# 清空外星人列表和子单列表
+	aliens.empty()
+	bullets.empty()
+
+	# 创建一群新的外星人，并将飞船放到屏幕底端中央
+	create_fleet(ai_settings, screen, ship, aliens)
+	ship.center_ship()
+
+	# 暂停
+	sleep(0.5)
+
+def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
 	"""
 	检查是否有外星人位于屏幕边缘，并更新整群外星人的位置
 	"""
@@ -137,7 +156,7 @@ def update_aliens(ai_settings, ship, aliens):
 
 	# 检测外星人和飞船之间的碰撞
 	if pygame.sprite.spritecollideany(ship, aliens):
-		print("ship hit!!!")
+		ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
 def check_fleet_edges(ai_settings, aliens):
 	"""有外星人到达边缘时采取相应的措施"""
