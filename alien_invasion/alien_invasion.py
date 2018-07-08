@@ -10,6 +10,8 @@ import game_functions as gf
 
 from pygame.sprite import Group
 
+from game_stats import GameStats
+
 def run_game():
 	#初始化游戏并创建一个屏幕对象
 	#初始化pygame、设置和屏幕对象
@@ -38,6 +40,9 @@ def run_game():
 	# 创建一个外星人
 	# alien = Alien(ai_settings, screen)
 
+	# 创建一个用于存储游戏统计信息的实例
+	stats = GameStats(ai_settings)
+
 	#开始游戏的主循环
 	while True:
 
@@ -48,7 +53,7 @@ def run_game():
 
 		gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
 
-		gf.update_aliens(ai_settings, ship, aliens)
+		gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
 
 		gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
