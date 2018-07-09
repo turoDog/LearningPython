@@ -52,7 +52,8 @@ def run_game():
 	while True:
 
 		#监视键盘和鼠标事件
-		gf.check_events(ai_settings, screen, ship, bullets)
+		gf.check_events(ai_settings, screen, stats, play_button, ship,
+		 bullets)
 
 		if stats.game_active:
 			
