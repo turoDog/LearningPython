@@ -53,7 +53,7 @@ def run_game():
 
 		#监视键盘和鼠标事件
 		gf.check_events(ai_settings, screen, stats, play_button, ship,
-		 bullets)
+		 aliens, bullets)
 
 		if stats.game_active:
 			
