@@ -13,6 +13,6 @@ plt.ylabel("Cube of Value", fontsize = 14)
 # 设置刻度标记的大小
 plt.tick_params(axis='both', labelsize = 14)
 
-plt.plot(x_values, cubes, linewidth=5)
+plt.plot(x_values, cubes, c=(0,0,1), linewidth=5)
 
 plt.show()
