@@ -14,11 +14,11 @@ while True:
 	point_numbers = list(range(rw.num_points))
 
 	# 分子运动
-	plt.plot(rw.x_values, rw.y_values, linewidth=1)
+	# plt.plot(rw.x_values, rw.y_values, linewidth=1)
 
 	# 随机漫步图
-	# plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues,
-	# 	edgecolor = 'none', s = 1)
+	plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues,
+		edgecolor = 'none', s = 15)
 
 	# 突出起点终点
 	plt.scatter(0, 0, c='green', edgecolor='none', 
