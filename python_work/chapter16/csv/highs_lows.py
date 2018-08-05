@@ -5,7 +5,7 @@ from datetime import datetime
 from matplotlib import pyplot as plt
 
 # 从文件中获取最高气温
-filename = 'sitka_weather_07-2014.csv'
+filename = 'sitka_weather_2014.csv'
 with open(filename) as f:
 	reader = csv.reader(f)
 	header_row = next(reader)
@@ -22,7 +22,7 @@ with open(filename) as f:
 	plt.plot(dates, highs, c='red')
 
 	# 设置图形的格式
-	plt.title("Daily high temperatures, July 2014", fontsize=24)
+	plt.title("Daily high temperatures - 2014", fontsize=24)
 	plt.xlabel('', fontsize=16)
 	fig.autofmt_xdate()
 	plt.ylabel("Temperature (F)", fontsize=16)
