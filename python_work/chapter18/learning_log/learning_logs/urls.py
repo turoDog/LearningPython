@@ -11,4 +11,7 @@ app_name = 'learning_log'
 urlpatterns = [
 	# 主页
 	url(r'^$', views.index, name='index'),
+
+	# 显示所有主题
+	url(r'^topics/$', views.topics, name='topics'),
 ]
